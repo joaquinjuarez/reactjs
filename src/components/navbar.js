@@ -1,16 +1,20 @@
+import { NavLink } from "react-router-dom"
 import carwidgets from "../CartWidgets/carwidgets"
 
 const navbar = () => {
-    return (
-        <nav>
-            <h3>Tabletas Graficas</h3>
-            <div>
-                <button>Wacom</button>
-                <button>XP-Pen</button>
-                <button>Samsung</button>
+    return(
+        <nav className="NavBar">
+            <link to="/">
+                <h3>Tablet Shop</h3>
+            </link>
+            <div className="Categories">
+                <NavLink to={`/Category/Wacom`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> Wacom
+                <NavLink to={`/Category/XPpen`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> XP_pen
+                <NavLink to={`/Category/Samsung`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> Samsung
+
             </div>
-            <Cartwidgets />
+            <carwidgets/>
         </nav>
     )
-}  
+}
 export default navbar
