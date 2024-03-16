@@ -1,20 +1,19 @@
-import { NavLink } from "react-router-dom"
-import carwidgets from "../CartWidgets/carwidgets"
+import { NavLink,Link } from "react-router-dom"
+import CartWidget from "./CartWidget/CartWidget"
 
-const navbar = () => {
+const Navbar = () => {
     return(
-        <nav className="NavBar">
-            <link to="/">
+        <nav className="NavBar" style={{display:'flex', justifyContent:'space-around'}}>
+            <Link to="/">
                 <h3>Tablet Shop</h3>
-            </link>
-            <div className="Categories">
-                <NavLink to={`/Category/Wacom`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> Wacom
-                <NavLink to={`/Category/XPpen`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> XP_pen
-                <NavLink to={`/Category/Samsung`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> Samsung
-
+            </Link>
+            <div className="Categories" style={{display:'flex', justifyContent:'space-around', width:500, alignItems:'center'}}>
+                <NavLink to={`/category/wacom`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> Wacom </NavLink>
+                <NavLink to={`/category/xppen`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> XP_pen</NavLink>
+                <NavLink to={`/category/samsung`} className={({isActive}) => isActive ? "ActiveOption" : "Option"}> Samsung</NavLink>
             </div>
-            <carwidgets/>
+            <CartWidget/>
         </nav>
     )
 }
-export default navbar
+export default Navbar
